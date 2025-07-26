@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgive Me</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fef3f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .loop {
+      background-color: #e0e0e0;
+    }
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    .yes:hover {
+      background-color: #ff1f4a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1 id="sentence">Will you forgive me and give us another chance?</h1>
+    <button class="loop" onclick="loopSentence()">Hmm...</button>
+    <button class="yes" onclick="showFinal()">Yes, I forgive you ❤️</button>
+  </div>
+
+  <script>
+    const sentences = [
+      "Will you forgive me and give us another chance?",
+      "I promise to be better — can we start again?",
+      "You still mean the world to me...",
+      "Please say yes — my heart is waiting.",
+      "I’ll wait as long as it takes...",
+      "Just one 'Yes' from you changes everything ❤️"
+    ];
+
+    let index = 0;
+
+    function loopSentence() {
+      index = (index + 1) % sentences.length;
+      document.getElementById("sentence").textContent = sentences[index];
+    }
+
+    function showFinal() {
+      document.getElementById("card").innerHTML = `
+        <h1>Thank you for giving us another chance ❤️</h1>
+        <p>I’ll never take your heart for granted again.</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
